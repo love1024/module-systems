@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <p>Generate random number between 1 and 10</p>
+      <button onclick="showRandomNumber()">Generate</button>
+      <br />
+      <br />
+      <span>Random Number: </span>
+      <span id="result"></span>
+    </div>
+    <script>
+      function init(module) {
+        window.showRandomNumber = function () {
+          document.getElementById("result").innerText = module.generate();
+        };
+      }
+    </script>
+    <!-- COMMENT OUT ONE MODULE AT A TIME -->
+
+    <!-- ===========COMMONJS=========== -->
+    <!-- Include bundle file of Browserify -->
+    <!-- <script src="./commonjs/bundle.js"></script>
+    <script>
+      init(module);
+    </script> -->
+    <!-- ===========END COMMONJS=========== -->
+
+    <!-- ===========AMD===========-->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+    <script>
+      requirejs(["./amd/main.js"], function (module) {
+        init(module);
+      });
+    </script> -->
+    <!-- ===========END AMD=========== -->
+
+    <!-- ===========UMD===========-->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script> -->
+    <!-- <script>
+      // Start the main app.
+      requirejs(["./umd/main.js"], function (module) {
+        init(module);
+      });
+    </script> -->
+    <!-- ===========END UMD=========== -->
+
+    <!-- ===========ES MODULE===========-->
+    <!-- <script type="module">
+      import { generate } from "/esmodule/main.js";
+      init({ generate });
+    </script> -->
+    <!-- ===========END ES MODULE=========== -->
+  </body>
+</html>
